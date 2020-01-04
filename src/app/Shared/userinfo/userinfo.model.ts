@@ -8,5 +8,5 @@ export class Userinfo {
     city:String;
     state:String;
     country:String;
-    Postel_Code:Number;
+    Postel_Code:String;
 }

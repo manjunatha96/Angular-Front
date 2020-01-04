@@ -18,15 +18,10 @@ export class RegistartionComponent implements OnInit {
   ngOnInit() {
     this.getDesigation();
     this.initForm();
-    this.onCancel();
 }
 
 clearFormData() {
   this.registerForm.reset();
-}
-
-onCancel() {
-  this.clearFormData();
 }
 
 showSuccess(status) {
@@ -77,5 +72,9 @@ private handleError(error) {
     timeOut: 2000
   });
 }
+onReset() {
+  this.submitted = false;
+  this.registerForm.reset();
+  }
 
 }
