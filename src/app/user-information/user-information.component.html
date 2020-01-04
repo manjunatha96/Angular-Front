@@ -5,9 +5,9 @@
             <div class="form-row">
                 <div class="form-group col-6">
                     <label>Full Name</label>
-                    <input type="text" formControlName="fullname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullname.errors }" />
-                    <div *ngIf="submitted && f.fullname.errors" class="invalid-feedback">
-                        <div *ngIf="f.fullname.errors.required">Full Name is required</div>
+                    <input type="text" formControlName="full_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }" />
+                    <div *ngIf="submitted && f.full_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.full_name.errors.required">Full Name is required</div>
                     </div>
                 </div>
                 <div class="form-group col-6">
@@ -33,26 +33,26 @@
                 </div>
                 <div class="form-group col-6">
                     <label>Mobile Number</label>
-                    <input type="tel" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                    <input type="tel" formControlName="Mobile_No" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Mobile_No.errors }" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.mobile.errors.required">Mobile Number is required</div>
-                        <div *ngIf="f.mobile.errors.minlength">Mobile Number must be at least 10 Number</div>
+                        <div *ngIf="f.Mobile_No.errors.required">Mobile Number is required</div>
+                        <div *ngIf="f.Mobile_No.errors.minlength">Mobile Number must be at least 10 Number</div>
                     </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-6">
                     <label>Adress Line1</label>
-                    <input type="text" formControlName="address1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" />
-                    <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
-                        <div *ngIf="f.address1.errors.required">Adress Line1 is required</div>
+                    <input type="text" formControlName="Address_line1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Address_line1.errors }" />
+                    <div *ngIf="submitted && f.Address_line1.errors" class="invalid-feedback">
+                        <div *ngIf="f.Address_line1.errors.required">Adress Line1 is required</div>
                     </div>
                 </div>
                 <div class="form-group col-6">
                     <label>Adress Line2</label>
-                    <input type="text" formControlName="address2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" />
-                    <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
-                        <div *ngIf="f.address2.errors.required">Adress Line2 is required</div>
+                    <input type="text" formControlName="Address_line2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Address_line2.errors }" />
+                    <div *ngIf="submitted && f.Address_line2.errors" class="invalid-feedback">
+                        <div *ngIf="f.Address_line2.errors.required">Adress Line2 is required</div>
                     </div>
                 </div>
         </div>
@@ -82,9 +82,9 @@
             </div>
             <div class="form-group col-6">
             <label>Postel Code</label>
-            <input type="number" formControlName="postal" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.postal.errors }" />
-            <div *ngIf="submitted && f.postal.errors" class="invalid-feedback">
-                <div *ngIf="f.postal.errors.required">Postel Code is required</div>
+            <input type="number" formControlName="Postel_Code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Postel_Code.errors }" />
+            <div *ngIf="submitted && f.Postel_Code.errors" class="invalid-feedback">
+                <div *ngIf="f.Postel_Code.errors.required">Postel Code is required</div>
             </div>
         </div>
         </div>

@@ -14,16 +14,16 @@ export class UserInformationComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
   this.registerForm = this.formBuilder.group({
-    fullname: ['', Validators.required],
+    full_name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     gender: ['', Validators.required],
-    mobile: ['', [Validators.required, Validators.minLength(10)]],
-    address1: ['', Validators.required],
-    address2: ['', Validators.required],
+    Mobile_No: ['', [Validators.required, Validators.minLength(10)]],
+    Address_line1: ['', Validators.required],
+    Address_line2: ['', Validators.required],
     city: ['', Validators.required],
     state: ['', Validators.required],
     country: ['', Validators.required],
-    postal: ['', Validators.required]
+    Postel_Code: ['', Validators.required]
 });
 }
 

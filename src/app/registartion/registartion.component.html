@@ -5,17 +5,17 @@
             <div class="form-row">
                 <div class="form-group col-6">
                     <label>First Name</label>
-                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                        <div *ngIf="f.firstName.errors.minlength">First Name must be at least 5 characters</div>
+                    <input type="text" formControlName="first_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" />
+                    <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                        <div *ngIf="f.first_name.errors.minlength">First Name must be at least 5 characters</div>
                     </div>
                 </div>
                 <div class="form-group col-6">
                     <label>Last Name</label>
-                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    <input type="text" formControlName="last_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }" />
+                    <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.last_name.errors.required">Last Name is required</div>
                         <div *ngIf="f.lastName.errors.minlength">Last Name must be at least 5 characters</div>
                     </div>
                 </div>
@@ -34,10 +34,10 @@
                 </div>
                 <div class="form-group col-6">
                     <label>Mobile Number</label>
-                    <input type="tel" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                    <input type="tel" formControlName="Mobile_No" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Mobile_No.errors }" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.mobile.errors.required">Mobile Number is required</div>
-                        <div *ngIf="f.mobile.errors.minlength">Mobile Number must be at least 10 Number</div>
+                        <div *ngIf="f.Mobile_No.errors.required">Mobile Number is required</div>
+                        <div *ngIf="f.Mobile_No.errors.minlength">Mobile Number must be at least 10 Number</div>
                     </div>
                 </div>
             </div>
@@ -62,13 +62,12 @@
         <div class="form-row">
             <div class="form-group col-6">
                 <label>Role</label>
-                <select formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+                <select formControlName="role_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role_id.errors }">
                     <option value="">Select any Role</option>
-                    <option value="Software Enginner">Software Enginner</option>
-                    <option value="Electrical Enginner">Electrical Enginner</option>
+                    <option value="{{item._id}}" *ngFor="let item of role">{{item.role_name}}</option>
                 </select>
-                <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
-                    <div *ngIf="f.role.errors.required">Title is required</div>
+                <div *ngIf="submitted && f.role_id.errors" class="invalid-feedback">
+                    <div *ngIf="f.role_id.errors.required">Title is required</div>
                 </div>
             </div>
         </div>

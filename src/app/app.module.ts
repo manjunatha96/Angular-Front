@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { RegistartionComponent } from './registartion/registartion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 import { UserInformationComponent } from './user-information/user-information.component';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,9 @@ import { UserInformationComponent } from './user-information/user-information.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]
