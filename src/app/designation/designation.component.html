@@ -1,0 +1,29 @@
+<div class="container text-center" >
+        <h1>
+                Designation
+        </h1>
+    </div>
+        <div class="container" >
+             <div class="row">
+                 <div class="col-12">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="row justify-content-center">
+                             <div class="col-3">
+                                <div class="form-group">
+                                 <label>Designation</label>
+                                 <input type="text" formControlName="role_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role_name.errors }" />
+                                <div *ngIf="submitted && f.role_name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.role_name.errors.required">Designation is required</div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+             <div class="text-center">
+                 <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                 <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+             </div>
+                </form>
+                </div>
+        </div>
+    </div>
+    

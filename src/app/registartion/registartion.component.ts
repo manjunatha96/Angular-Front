@@ -61,9 +61,11 @@ console.log(this.registerForm.value)
       this.clearFormData();
       this.showSuccess('Successfully')
       console.log('success',res);
-      },error => {
+      },
+      error => {
         this.handleError(error);
-      })
+      }
+    )
 }
 
 private handleError(error) {

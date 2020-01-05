@@ -9,19 +9,25 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserInformationComponent } from './user-information/user-information.component';
 import { ToastrModule } from 'ngx-toastr';
+import { DesignationComponent } from './designation/designation.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     RegistartionComponent,
     LoginComponent,
-    UserInformationComponent
+    UserInformationComponent,
+    DesignationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot() 
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
