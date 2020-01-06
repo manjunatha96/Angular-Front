@@ -1,12 +1,13 @@
 export class Userinfo {
-    full_name:String;
-    gender:String;
-    Mobile_No:String;
-    email:String;
-    Address_line1:String;
-    Address_line2:String;
-    city:String;
-    state:String;
-    country:String;
-    Postel_Code:String;
+    _id:string;
+    full_name:string;
+    gender:string;
+    Mobile_No:string;
+    email:string;
+    Address_line1:string;
+    Address_line2:string;
+    city:string;
+    state:string;
+    country:string;
+    Postel_Code:string;
 }

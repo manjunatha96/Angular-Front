@@ -14,8 +14,6 @@ export class RegisterService {
     console.log('register data',register)
     let authenticatedHeader = new HttpHeaders();
     authenticatedHeader = authenticatedHeader.set('X1-login', 'application/json');
-    // token = authenticatedHeader.set('Con', 'application/json');
-    
     return this.http.post<Register>( `${this.baseUrl}/register/post`,register)
   }
 

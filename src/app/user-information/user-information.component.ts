@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { UserinfoService } from '../Shared/userinfo/userinfo.service'
+import { ToastrService } from 'ngx-toastr';
+import { Userinfo } from '../Shared/userinfo/userinfo.model'
 @Component({
   selector: 'app-user-information',
   templateUrl: './user-information.component.html',
@@ -10,9 +12,17 @@ export class UserInformationComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
-
-  constructor(private formBuilder: FormBuilder, private _serviceUserInfo:UserinfoService) { }
+  noUserDetails:any;
+  users:any;
+  userObj:any;
+  constructor(private formBuilder: FormBuilder, private _serviceUserInfo:UserinfoService, private toster:ToastrService) { }
   ngOnInit() {
+    this.regform()
+    this.getInfo()
+    this.userObj = new Userinfo();
+}
+
+regform(){
   this.registerForm = this.formBuilder.group({
     full_name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
@@ -29,22 +39,66 @@ export class UserInformationComponent implements OnInit {
 
 get f() { return this.registerForm.controls; }
 
-onSubmit() {
+onShow(status){
+  this.toster.success(status,'Successfully!',{
+    timeOut:2000
+  })
+}
+
+onSubmit(id) {
 this.submitted = true;
 if (this.registerForm.invalid) {return;}
 console.log(this.registerForm.value)
-
-this._serviceUserInfo.postUserInfo(this.registerForm.value)
-.subscribe(res =>{
-  console.log(res)  
-},error=>{
-  console.log(error);
-  
-})
-
+if(id !==undefined){
+  this.editInfo(id,this.registerForm.value )
+}else{
+  this._serviceUserInfo.postUserInfo(this.registerForm.value)
+  .subscribe(res =>{
+    this.onShow('Stored')
+    this.onReset()
+  },error=>{
+    console.log(error);
+    
+  })
+}
 }
 onReset() {
 this.submitted = false;
 this.registerForm.reset();
 }
+
+getInfo(){
+  this._serviceUserInfo.getUserInfo()
+  .subscribe(res=>{
+       this.users=res;
+       this.noUserDetails=this.users.length
+  })
+}
+ 
+deleteInfo(user){
+  this._serviceUserInfo.deleteUserInfo(user._id)
+  .subscribe(res=>{
+    this.onShow('Deleted')
+    this.onReset()
+    this.getInfo()
+  })
+}
+
+editInfo(id,target){
+ this._serviceUserInfo.editUserInfo(id,target)
+ .subscribe(res=>{
+   this.onShow('Updated')
+   this.onReset()
+   this.getInfo()
+ }) 
+}
+
+getById($event){
+  this._serviceUserInfo.getById($event.target.id)
+  .subscribe(res=>{
+    console.log("------>",res);
+    this.userObj=res;
+  })
+}
+
 }

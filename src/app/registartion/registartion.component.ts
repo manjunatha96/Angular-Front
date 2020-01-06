@@ -58,9 +58,8 @@ if (this.registerForm.invalid) {return;}
 console.log(this.registerForm.value)
     this._regService.postRegistertation(this.registerForm.value)
     .subscribe(res=>{
-      this.clearFormData();
       this.showSuccess('Successfully')
-      console.log('success',res);
+      this.onReset();
       },
       error => {
         this.handleError(error);

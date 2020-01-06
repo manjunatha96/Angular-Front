@@ -2,10 +2,9 @@
     <a class="navbar-brand" routerLink="">Home</a>
     <div class="text-left">
         <a class="navbar-brand text-left" routerLink="/designation">Designation</a>
-        <a class="navbar-brand text-left" routerLink="/info">Sign Up</a>
-        <a class="navbar-brand text-left" routerLink="/login">Login</a>
-        <a class="navbar-brand text-left" (click)="_serviceLogin.loggedOut()" routerLink="/login">Logout</a>
-        
+        <!-- <a class="navbar-brand text-left" routerLink="/info">Sign Up</a> -->
+        <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/login">Login</a>
+        <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" (click)="_serviceLogin.loggedOut()" routerLink="/login">Logout</a>  
     </div>
 </nav>
 <router-outlet></router-outlet>

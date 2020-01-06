@@ -1,18 +1,19 @@
 <div class="card m-3">
     <h5 class="card-header">User Information Form</h5>
     <div class="card-body">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(userObj._id)">
             <div class="form-row">
                 <div class="form-group col-6">
-                    <label>Full Name</label>
-                    <input type="text" formControlName="full_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }" />
+                    <!-- [(ngModel)]="userObj.full_name" -->
+                    <label >Full Name</label>
+                    <input type="text" formControlName="full_name" class="form-control" [(ngModel)]="userObj.full_name" [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }" />
                     <div *ngIf="submitted && f.full_name.errors" class="invalid-feedback">
                         <div *ngIf="f.full_name.errors.required">Full Name is required</div>
                     </div>
                 </div>
                 <div class="form-group col-6">
                     <label>Email</label>
-                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <input type="text" formControlName="email" class="form-control" [(ngModel)]="userObj.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                         <div *ngIf="f.email.errors.required">Email is required</div>
                         <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
@@ -22,7 +23,7 @@
             <div class="form-row">
                 <div class="form-group col-6">
                     <label>Gender</label>
-                    <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                    <select formControlName="gender" class="form-control" [(ngModel)]="userObj.gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
                         <option value="">Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Fe-Male">Fe-Male</option>
@@ -33,7 +34,7 @@
                 </div>
                 <div class="form-group col-6">
                     <label>Mobile Number</label>
-                    <input type="tel" formControlName="Mobile_No" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Mobile_No.errors }" />
+                    <input type="tel" formControlName="Mobile_No" class="form-control" [(ngModel)]="userObj.Mobile_No" [ngClass]="{ 'is-invalid': submitted && f.Mobile_No.errors }" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                         <div *ngIf="f.Mobile_No.errors.required">Mobile Number is required</div>
                         <div *ngIf="f.Mobile_No.errors.minlength">Mobile Number must be at least 10 Number</div>
@@ -43,14 +44,14 @@
             <div class="form-row">
                 <div class="form-group col-6">
                     <label>Adress Line1</label>
-                    <input type="text" formControlName="Address_line1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Address_line1.errors }" />
+                    <input type="text" formControlName="Address_line1" class="form-control" [(ngModel)]="userObj.Address_line1" [ngClass]="{ 'is-invalid': submitted && f.Address_line1.errors }" />
                     <div *ngIf="submitted && f.Address_line1.errors" class="invalid-feedback">
                         <div *ngIf="f.Address_line1.errors.required">Adress Line1 is required</div>
                     </div>
                 </div>
                 <div class="form-group col-6">
                     <label>Adress Line2</label>
-                    <input type="text" formControlName="Address_line2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Address_line2.errors }" />
+                    <input type="text" formControlName="Address_line2" class="form-control" [(ngModel)]="userObj.Address_line2" [ngClass]="{ 'is-invalid': submitted && f.Address_line2.errors }" />
                     <div *ngIf="submitted && f.Address_line2.errors" class="invalid-feedback">
                         <div *ngIf="f.Address_line2.errors.required">Adress Line2 is required</div>
                     </div>
@@ -59,14 +60,14 @@
         <div class="form-row">
             <div class="form-group col-6">
                 <label>City</label>
-                <input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                <input type="text" formControlName="city" class="form-control" [(ngModel)]="userObj.city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
                 <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
                     <div *ngIf="f.city.errors.required">City is required</div>
                 </div>
             </div>
             <div class="form-group col-6">
             <label>State</label>
-            <input type="text" formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" />
+            <input type="text" formControlName="state" class="form-control" [(ngModel)]="userObj.state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" />
             <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
                 <div *ngIf="f.state.errors.required">State is required</div>
             </div>
@@ -75,14 +76,14 @@
         <div class="form-row">
             <div class="form-group col-6">
                 <label>Country</label>
-                <input type="text" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+                <input type="text" formControlName="country" class="form-control" [(ngModel)]="userObj.country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
                 <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
                     <div *ngIf="f.country.errors.required">Country is required</div>
                 </div>
             </div>
             <div class="form-group col-6">
             <label>Postel Code</label>
-            <input type="text" formControlName="Postel_Code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Postel_Code.errors }" />
+            <input type="text" formControlName="Postel_Code" class="form-control" [(ngModel)]="userObj.Postel_Code" [ngClass]="{ 'is-invalid': submitted && f.Postel_Code.errors }" />
             <div *ngIf="submitted && f.Postel_Code.errors" class="invalid-feedback">
                 <div *ngIf="f.Postel_Code.errors.required">Postel Code is required</div>
             </div>
@@ -95,3 +96,43 @@
         </form>
     </div>
 </div>
+
+<div class="card m-3">
+    <h2 class="mt-4">User Details</h2>   
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Gender</th>
+          <th>Mobile</th>
+          <th>Email</th>
+          <th>Adress Line1</th>
+          <th>Adress Line2</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Country</th>
+          <th>Postal Code</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.full_name}}</td>
+          <td>{{user.gender}}</td>
+          <td>{{user.Mobile_No}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.Address_line1}}</td>
+          <td>{{user.Address_line2}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.state}}</td>
+          <td>{{user.country}}</td>
+          <td>{{user.Postel_Code}}</td>
+          <td> <button type="button" id={{user._id}} (click)="getById($event)" class="btn btn-primary">Edit</button></td>
+          <td><button type="button" (click)="deleteInfo(user)"  class="btn btn-danger">Delete</button></td>  
+        </tr>
+      </tbody>
+    </table>
+    <h3 *ngIf="noUserDetails == '0'">No records available</h3> 
+  </div>
+ 

@@ -1,6 +1,7 @@
 import { DesignationService } from './../Shared/designation/designation.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-designation',
@@ -11,7 +12,7 @@ export class DesignationComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private _serviceRole:DesignationService) { }
+  constructor(private formBuilder: FormBuilder, private _serviceRole:DesignationService, private toster:ToastrService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -26,7 +27,9 @@ export class DesignationComponent implements OnInit {
   console.log(this.registerForm.value)
   this._serviceRole.postRole(this.registerForm.value)
   .subscribe(res=>{
-    console.log(res)
+     this.onshow('Saved')
+     this.onReset()
+     
   },error=>{
     console.log(error)    
   })
@@ -35,4 +38,11 @@ onReset() {
   this.submitted = false;
   this.registerForm.reset();
   }
+
+  onshow(status){
+    this.toster.success(status,'Successfully!',{
+      timeOut:2000
+    })
+  }
+
 }

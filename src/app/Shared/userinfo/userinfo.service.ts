@@ -15,4 +15,19 @@ export class UserinfoService {
     return this.http.post<Userinfo>(`${this.baseUrl}/info/post`,userinfo)
   }
 
+  getUserInfo():Observable<Userinfo>{
+    return this.http.get<Userinfo>(`${this.baseUrl}/info/get`)
+  }
+
+  deleteUserInfo(id):Observable<Userinfo>{
+    return this.http.delete<Userinfo>(`${this.baseUrl}/info/delete/${id}`)
+  }
+
+  editUserInfo(id,target):Observable<Userinfo>{
+    return this.http.put<Userinfo>(`${this.baseUrl}/info/update/${id}`,target)
+  }
+  getById(id):Observable<Userinfo>{
+    return this.http.get<Userinfo>(`${this.baseUrl}/info/get/${id}`)
+  }
+
 }

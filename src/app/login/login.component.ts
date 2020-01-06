@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../Shared/login/login.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
   constructor(private formBuilder: FormBuilder, private _serviceLogin:LoginService,
-  private route:Router) { }
+  private route:Router,private toastr: ToastrService) { }
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -22,6 +23,12 @@ export class LoginComponent implements OnInit {
   }
   get f() { return this.registerForm.controls; }
   
+  onShow(status){
+    this.toastr.success(status,'Successfully!',{
+      timeOut:2000
+    })
+  }
+
   onSubmit() {
   this.submitted = true;
   
@@ -32,6 +39,7 @@ export class LoginComponent implements OnInit {
   .subscribe(res=>{
     localStorage.setItem('token',res.token)
     this.route.navigateByUrl('/info')
+    this.onShow('login')
   },error=>{
     console.log(error);
   })
