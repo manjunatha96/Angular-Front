@@ -2,6 +2,9 @@ import { DesignationService } from './../Shared/designation/designation.service'
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Designation } from '../Shared/designation/designation.model';
+import { log } from 'util';
+
 
 @Component({
   selector: 'app-designation',
@@ -11,28 +14,42 @@ import { ToastrService } from 'ngx-toastr';
 export class DesignationComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-
+  roleData:any;
+  roleDeatils:any;
+  nodata:any;
   constructor(private formBuilder: FormBuilder, private _serviceRole:DesignationService, private toster:ToastrService) { }
 
   ngOnInit() {
+    this.regForm();
+    this.onGet();
+    this.roleDeatils=new  Designation();
+  }
+
+  regForm(){
     this.registerForm = this.formBuilder.group({
-      role_name: ['', [Validators.required]]
+      role_name: ['', [Validators.required,Validators.minLength(5)]]
   });
   }
+
   get f() { return this.registerForm.controls; }
 
-    onSubmit() {
+    onSubmit(id) {    
   this.submitted = true;
   if (this.registerForm.invalid) {return;}
-  console.log(this.registerForm.value)
-  this._serviceRole.postRole(this.registerForm.value)
-  .subscribe(res=>{
-     this.onshow('Saved')
-     this.onReset()
-     
-  },error=>{
-    console.log(error)    
-  })
+      if(id==undefined){
+        this._serviceRole.postRole(this.registerForm.value)
+        .subscribe(res=>{
+           this.onshow('Saved')
+           this.onReset()
+           this.onGet()
+        },error=>{
+          console.log(error)    
+        })
+      }
+      else{
+        this.onUpdate(id,this.registerForm.value)
+      }
+
 }
 onReset() {
   this.submitted = false;
@@ -45,4 +62,36 @@ onReset() {
     })
   }
 
+  onGet(){
+    this._serviceRole.getRole()
+    .subscribe(res=>{
+      this.roleData=res;
+      this.nodata=this.roleData.length;
+    })
+  }
+
+  deleteInfo(user){
+    this._serviceRole.deleteRole(user._id)
+    .subscribe(res=>{
+      this.onshow('Deleted')
+      this.onReset()
+      this.onGet()
+    })
+  }
+
+  onGetById($event){
+    this._serviceRole.getById($event.target.id)
+    .subscribe(res=>{
+      this.roleDeatils=res;
+    })
+  }
+
+  onUpdate(id,data){
+    this._serviceRole.updateRole(id, data)
+    .subscribe(res=>{
+      this.onshow('Updated');
+      this.onReset()
+      this.onGet()
+    })
+  }
 }

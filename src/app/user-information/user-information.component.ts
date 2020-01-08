@@ -24,7 +24,7 @@ export class UserInformationComponent implements OnInit {
 
 regform(){
   this.registerForm = this.formBuilder.group({
-    full_name: ['', Validators.required],
+    full_name: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     gender: ['', Validators.required],
     Mobile_No: ['', [Validators.required, Validators.minLength(10)]],

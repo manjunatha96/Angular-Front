@@ -102,6 +102,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Sl no</th>
           <th>Firstname</th>
           <th>Gender</th>
           <th>Mobile</th>
@@ -117,7 +118,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of users; let i=index">
+          <td>{{i+1}} </td>
           <td>{{user.full_name}}</td>
           <td>{{user.gender}}</td>
           <td>{{user.Mobile_No}}</td>
