@@ -24,7 +24,7 @@ export class UserInformationComponent implements OnInit {
 
 regform(){
   this.registerForm = this.formBuilder.group({
-    full_name: ['', [Validators.required]],
+    full_name: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]*$')]],
     email: ['', [Validators.required, Validators.email]],
     gender: ['', Validators.required],
     Mobile_No: ['', [Validators.required, Validators.minLength(10)]],
@@ -56,9 +56,9 @@ if(id !==undefined){
   .subscribe(res =>{
     this.onShow('Stored')
     this.onReset()
+    this.getInfo()
   },error=>{
-    console.log(error);
-    
+    this.onshow1(error.error)    
   })
 }
 }
@@ -71,7 +71,7 @@ getInfo(){
   this._serviceUserInfo.getUserInfo()
   .subscribe(res=>{
        this.users=res;
-       this.noUserDetails=this.users.length
+       this.noUserDetails=this.users.length;
   })
 }
  
@@ -81,6 +81,8 @@ deleteInfo(user){
     this.onShow('Deleted')
     this.onReset()
     this.getInfo()
+  },error=>{
+    this.onshow1(error.error)    
   })
 }
 
@@ -90,15 +92,27 @@ editInfo(id,target){
    this.onShow('Updated')
    this.onReset()
    this.getInfo()
- }) 
+ },error=>{
+  this.onshow1(error.error)    
+}) 
 }
 
 getById($event){
   this._serviceUserInfo.getById($event.target.id)
   .subscribe(res=>{
-    console.log("------>",res);
     this.userObj=res;
+  },error=>{
+    this.onshow1(error.error)    
   })
 }
-
+onshow1(status){
+  this.toster.warning(status,'oops!',{
+    timeOut:2000
+  })
+}
+clickMethod() {
+  if(confirm("Are you sure to delete ")) {
+    console.log("Implement delete functionality here");
+  }
+}
 }

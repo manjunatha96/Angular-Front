@@ -62,23 +62,18 @@ console.log(this.registerForm.value)
       this.onReset();
       },
       error => {
-        this.handleError(error);
+        this.onshow1(error.error);
       }
     )
 }
 
-private handleError(error) {
-  const errors=error.error.errors[0].details;
-  console.log(errors);
-  this.showSuccess1(errors)
-}
 onReset() {
   this.submitted = false;
   this.registerForm.reset();
   }
-  showSuccess1(status) {
-    this.toastr.success(status, 'oops!', {
-      timeOut: 2000
-    });
+  onshow1(status){
+    this.toastr.warning(status,'oops!',{
+      timeOut:2000
+    })
   }
 }

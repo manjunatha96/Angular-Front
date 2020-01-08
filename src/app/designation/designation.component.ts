@@ -39,11 +39,12 @@ export class DesignationComponent implements OnInit {
       if(id==undefined){
         this._serviceRole.postRole(this.registerForm.value)
         .subscribe(res=>{
+          console.log(res)          
            this.onshow('Saved')
            this.onReset()
            this.onGet()
         },error=>{
-          console.log(error)    
+          this.onshow1(error.error)  
         })
       }
       else{
@@ -92,6 +93,15 @@ onReset() {
       this.onshow('Updated');
       this.onReset()
       this.onGet()
+    })
+  }
+  private handleError(error) {
+    const errors=error.errors[0].details;
+    console.log(errors);
+  }
+  onshow1(status){
+    this.toster.warning(status,'oops!',{
+      timeOut:2000
     })
   }
 }
