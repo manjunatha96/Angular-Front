@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { RegisterService } from '../Shared/register/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rest-password',
@@ -11,7 +12,7 @@ import { RegisterService } from '../Shared/register/register.service';
 export class RestPasswordComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-  constructor(private fb:FormBuilder, private toster:ToastrService, private _serviceConfirmPass:RegisterService) { }
+  constructor(private fb:FormBuilder, private toster:ToastrService, private _serviceConfirmPass:RegisterService, private router:Router) { }
 
   ngOnInit() {
     this.fromData()
@@ -39,6 +40,7 @@ export class RestPasswordComponent implements OnInit {
       .subscribe(res=>{
         this.onReset()
         this.onShow('Password Changed')
+        this.router.navigateByUrl('/login')
       }, error=>{
         this.onShow1(error.error)
       })

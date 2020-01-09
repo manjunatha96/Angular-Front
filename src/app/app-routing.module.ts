@@ -8,7 +8,7 @@ import { RestPasswordComponent } from './rest-password/rest-password.component';
 
 
 const routes: Routes = [
-  { path: '', component: RegistartionComponent },
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'info', component: UserInformationComponent },
   { path: 'designation', component:DesignationComponent},
