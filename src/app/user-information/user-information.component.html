@@ -9,7 +9,7 @@
                     <input type="text" formControlName="full_name" class="form-control" [(ngModel)]="userObj.full_name" [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }" />
                     <div *ngIf="submitted && f.full_name.errors" class="invalid-feedback">
                         <div *ngIf="f.full_name.errors.required">Full Name is required</div>
-                        <div *ngIf="f.full_name.errors.pattern">Full Name much be alphabet is required</div>                        
+                        <div *ngIf="f.full_name.errors.pattern">Full Name must be alphabet</div>                        
                     </div>
                 </div>
                 <div class="form-group col-6">
@@ -87,6 +87,7 @@
             <input type="text" formControlName="Postel_Code" class="form-control" [(ngModel)]="userObj.Postel_Code" [ngClass]="{ 'is-invalid': submitted && f.Postel_Code.errors }" />
             <div *ngIf="submitted && f.Postel_Code.errors" class="invalid-feedback">
                 <div *ngIf="f.Postel_Code.errors.required">Postel Code is required</div>
+                <div *ngIf="f.Postel_Code.errors.pattern">Postel Code  must be number</div>
             </div>
         </div>
         </div>
@@ -134,8 +135,8 @@
           <td>{{user.state}}</td>
           <td>{{user.country}}</td>
           <td>{{user.Postel_Code}}</td>
-          <td> <button type="button" id={{user._id}} (click)="getById($event)" (click)="clickMethod()" class="btn btn-primary">Edit</button></td>
-          <td><button type="button" (click)="deleteInfo(user)"  class="btn btn-danger">Delete</button></td>  
+          <td> <button type="button" id={{user._id}} (click)="getById($event)" class="btn btn-primary">Edit</button></td>
+          <td><button type="button" (click)="deleteInfo(user)" (click)="clickMethod()" class="btn btn-danger">Delete</button></td>  
         </tr>
       </tbody>
     </table>

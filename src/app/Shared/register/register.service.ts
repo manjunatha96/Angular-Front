@@ -20,4 +20,10 @@ export class RegisterService {
   getDesigation(): Observable<Designation>{
     return this.http.get<Designation>(`${this.baseUrl}/role/get`)
   }
+
+  updatePassword(passData):Observable<Register>{
+    console.log("---->",passData);
+    
+    return this.http.put<Register>(`${this.baseUrl}/register/update_password`,passData)
+  }
 }

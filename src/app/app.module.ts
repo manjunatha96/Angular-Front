@@ -11,6 +11,7 @@ import { UserInformationComponent } from './user-information/user-information.co
 import { ToastrModule } from 'ngx-toastr';
 import { DesignationComponent } from './designation/designation.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RestPasswordComponent } from './rest-password/rest-password.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     RegistartionComponent,
     LoginComponent,
     UserInformationComponent,
-    DesignationComponent
+    DesignationComponent,
+    RestPasswordComponent
   ],
   imports: [
     BrowserModule,

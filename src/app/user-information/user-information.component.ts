@@ -33,7 +33,7 @@ regform(){
     city: ['', Validators.required],
     state: ['', Validators.required],
     country: ['', Validators.required],
-    Postel_Code: ['', Validators.required]
+    Postel_Code: ['', [Validators.required,Validators.pattern('^[0-9]*$')]]
 });
 }
 

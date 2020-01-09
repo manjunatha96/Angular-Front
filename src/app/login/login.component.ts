@@ -33,21 +33,25 @@ export class LoginComponent implements OnInit {
   this.submitted = true;
   
   if (this.registerForm.invalid) {return;}
-  
-  console.log(this.registerForm.value)
   this._serviceLogin.postLogin(this.registerForm.value)
   .subscribe(res=>{
     localStorage.setItem('token',res.token)
     this.route.navigateByUrl('/info')
     this.onShow('login')
   },error=>{
-    console.log(error);
+    this.onshow1(error.error);
   })
   }
   
   onReset() {
   this.submitted = false;
   this.registerForm.reset();
+  }
+
+  onshow1(status){
+    this.toastr.warning(status,'oops!',{
+      timeOut:2000
+    })
   }
 
 }
