@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import{ RegisterService } from '../Shared/register/register.service'
-import { from } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-registartion',

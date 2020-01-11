@@ -7,7 +7,7 @@ import { LoginService } from './Shared/login/login.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Front-End';
+  title = 'Register From';
   constructor(private _serviceLogin:LoginService){}
 
 }

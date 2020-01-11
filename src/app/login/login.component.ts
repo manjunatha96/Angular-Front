@@ -12,7 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-
+  password_type:string='password'
+  password_shown:boolean=false;
+  
   constructor(private formBuilder: FormBuilder, private _serviceLogin:LoginService,
   private route:Router,private toastr: ToastrService) { }
   ngOnInit() {
@@ -20,6 +22,11 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
   });
+  setTimeout(() => {
+    console.log('logout');
+    localStorage.removeItem('token')
+    this.route.navigateByUrl('/login')
+  }, 600000);
   }
   get f() { return this.registerForm.controls; }
   
@@ -53,5 +60,14 @@ export class LoginComponent implements OnInit {
       timeOut:2000
     })
   }
-
-}
+  showPass(){
+    if(this.password_shown){
+        this.password_shown=false;
+        this.password_type='password'
+      }
+    else{
+      this.password_shown=true;
+      this.password_type='text'
+    }
+  }
+ }

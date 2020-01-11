@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class RestPasswordComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+  password_type:string='password';
+  password_type1:string='password';
+  password_shown:boolean=false;
+  password_shown1:boolean=false;
   constructor(private fb:FormBuilder, private toster:ToastrService, private _serviceConfirmPass:RegisterService, private router:Router) { }
 
   ngOnInit() {
@@ -58,5 +62,26 @@ export class RestPasswordComponent implements OnInit {
   }
   onShow(status){
     this.toster.warning(status,'Successfully!')
+  }
+
+  showPass(){
+    if(this.password_shown){
+        this.password_shown=false;
+        this.password_type='password'
+      }
+    else{
+      this.password_shown=true;
+      this.password_type='text'
+    }
+  }
+  showPass1(){
+    if(this.password_shown1){
+        this.password_shown1=false;
+        this.password_type1='password'
+      }
+    else{
+      this.password_shown1=true;
+      this.password_type1='text'
+    }
   }
 }
