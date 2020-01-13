@@ -12,6 +12,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { DesignationComponent } from './designation/designation.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RestPasswordComponent } from './rest-password/rest-password.component';
+import { RegisterDeatilsComponent } from './registerDetails/register-deatils/register-deatils.component';
+import { UploadfileComponent } from './fileUpload/uploadfile/uploadfile.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { RestPasswordComponent } from './rest-password/rest-password.component';
     LoginComponent,
     UserInformationComponent,
     DesignationComponent,
-    RestPasswordComponent
+    RestPasswordComponent,
+    RegisterDeatilsComponent,
+    UploadfileComponent
   ],
   imports: [
     BrowserModule,

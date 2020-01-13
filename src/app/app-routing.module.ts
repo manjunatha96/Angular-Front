@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistartionComponent } from './registartion/registartion.component';
 import { UserInformationComponent } from './user-information/user-information.component';
 import { RestPasswordComponent } from './rest-password/rest-password.component';
+import { RegisterDeatilsComponent } from './registerDetails/register-deatils/register-deatils.component';
+import { UploadfileComponent } from './fileUpload/uploadfile/uploadfile.component';
 
 
 const routes: Routes = [
@@ -13,7 +15,10 @@ const routes: Routes = [
   { path: 'info', component: UserInformationComponent },
   { path: 'designation', component:DesignationComponent},
   { path: 'registration',component:RegistartionComponent},
-  { path:'forget_passwoed',component:RestPasswordComponent}
+  { path:'forget_passwoed',component:RestPasswordComponent},
+  { path:'Register-details',component:RegisterDeatilsComponent},
+  { path:'upload', component:UploadfileComponent}
+
 ];
 
 @NgModule({

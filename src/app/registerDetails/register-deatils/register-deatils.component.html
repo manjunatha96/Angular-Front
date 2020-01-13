@@ -1,0 +1,28 @@
+<div class="card m-2">
+    <h2 class="mt-3">Registered User Deatils</h2>   
+    <table class="table table-dark">
+      <thead align="center">
+        <tr>
+            <th>Sl No.</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Mobile No.</th>
+          <th>Gender</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody  align="center">
+        <tr *ngFor="let ur of user;let i=index;">
+            <td>{{i+1}} </td>
+          <td>{{ur.first_name}}</td>
+          <td>{{ur.last_name}}</td>
+          <td>{{ur.email}}</td>
+          <td>{{ur.Mobile_No}}</td>
+          <td>{{ur.gender}}</td>
+          <td><button type="button" (click)="deleteInfo(ur._id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+  </table>
+  <h3 *ngIf="noUserDetails == '0'">No records available</h3> 
+</div>

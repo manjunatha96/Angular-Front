@@ -12,7 +12,7 @@ export class RegistartionComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   role:any;
-
+  fileToUpload: File = null;
   constructor(private formBuilder: FormBuilder, private _regService:RegisterService,private toastr: ToastrService) { }
   ngOnInit() {
     this.getDesigation();
@@ -39,6 +39,7 @@ initForm() {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     role_id: ['', Validators.required]
+    // file:['']
 });
 }
 

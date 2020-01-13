@@ -22,8 +22,13 @@ export class RegisterService {
   }
 
   updatePassword(passData):Observable<Register>{
-    console.log("---->",passData);
-    
     return this.http.put<Register>(`${this.baseUrl}/register/update_password`,passData)
+  }
+
+  getRegisterData():Observable<Register>{
+    return this.http.get<Register>(`${this.baseUrl}/register/get`)
+  }
+  deleteRegisterData(id):Observable<Register>{
+    return this.http.delete<Register>(`${this.baseUrl}/register/delete/${id}`)
   }
 }

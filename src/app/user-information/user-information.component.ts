@@ -76,6 +76,7 @@ getInfo(){
 }
  
 deleteInfo(user){
+  if(confirm("Are you sure to delete this user!")) {
   this._serviceUserInfo.deleteUserInfo(user._id)
   .subscribe(res=>{
     this.onShow('Deleted')
@@ -84,6 +85,7 @@ deleteInfo(user){
   },error=>{
     this.onshow1(error.error)    
   })
+}
 }
 
 editInfo(id,target){
@@ -109,10 +111,5 @@ onshow1(status){
   this.toster.warning(status,'oops!',{
     timeOut:2000
   })
-}
-clickMethod() {
-  if(confirm("Are you sure to delete ")) {
-    console.log("Implement delete functionality here");
-  }
 }
 }
