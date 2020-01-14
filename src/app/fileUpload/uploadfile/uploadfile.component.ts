@@ -8,18 +8,19 @@ let baseUrl='http://localhost:1234/upload'
   styleUrls: ['./uploadfile.component.css']
 })
 export class UploadfileComponent implements OnInit {
-  uploader:FileUploader = new FileUploader({url: baseUrl})
-  attachmentList:any=[];
-  constructor() { 
-    this.uploader._onCompleteItem=(item:any, response:any, status:any,header:any)=>{
-      this.attachmentList.push(JSON.parse(response))
-    }
-  }
-
+  fileToUpload: File = null;
+  constructor(){}
   ngOnInit() {
   }
-  onChange(event) {
-    var files = event.srcElement.files;
-    console.log(files);
-  }
+  
+  handleFileInput(files: FileList) {
+    console.log(files.item(0));
+    this.fileToUpload = files.item(0);
+    console.log(this.fileToUpload);
+    
+}
+upload(){
+
+
+}
 }
