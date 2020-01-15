@@ -31,8 +31,56 @@
 </div>
 
 </div> -->
-<div class="form-group">
+<!-- <div class="form-group">
     <label for="file">Choose File</label>
     <input type="file" id="file" (change)="handleFileInput($event.target.files)">
 </div>
-<button type="button" (click)="upload()">Upload</button>
+<button type="button" (click)="upload(file)">Upload</button> -->
+<div class="container text-center" >
+    <h1>
+            File Upload
+    </h1>
+</div>
+    <div class="container" >
+         <div class="row">
+             <div class="col-12">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit(file)">
+                    <div class="row justify-content-center">
+                         <div class="col-3">
+                            <div class="form-group">
+                             <label>File</label>
+                             <input type="file" formControlName="file" (change)="handleFileInput($event.target.files)">
+                             </div>
+                        </div>
+                    </div>
+         <div class="text-center">
+             <button class="btn btn-success mr-1" type="submit">Submit</button>
+             <button class="btn btn-primary" type="reset" (click)="onReset()">Cancel</button>
+         </div>
+            </form>
+            </div>
+    </div>
+</div>
+<!-- <div align="center">
+<div class="card m-3">
+    <h2 class="mt-1">Designation Details</h2>   
+    <table style="text-align:center;" class="table table-dark">
+      <thead align="center">
+        <tr>
+          <th>Sl no.</th>
+          <th>Name</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of roleData;let i=index">
+            <td>{{i + 1}}</td>
+          <td>{{user.role_name}} </td>
+          <td> <button type="button" id={{user._id}} (click)="onGetById($event)" class="btn btn-info">Edit</button></td>
+          <td><button type="button" (click)="deleteInfo(user)"  class="btn btn-danger">Delete</button></td>  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 *ngIf="nodata == 0">No record found</h3> -->
