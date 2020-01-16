@@ -25,8 +25,9 @@ export class UploadfileComponent implements OnInit {
   handleFileInput(files: FileList) {
     this.formData = new FormData();
     this.formData.append("uploads",  files.item(0)); 
+    console.log(this.formData)  
 }
-onSubmit(handleFileInput){
+onSubmit(){
 this._serviceFileUpload.uploadFile(this.formData)
 .subscribe(res=>{
  this.onshow('File Uploaded') 

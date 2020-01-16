@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import{ RegisterService } from '../Shared/register/register.service'
 import { ToastrService } from 'ngx-toastr';
-import { FileuploadsService } from '../Shared/fileupload/fileuploads.service';
+
 @Component({
   selector: 'app-registartion',
   templateUrl: './registartion.component.html',
@@ -15,7 +15,7 @@ export class RegistartionComponent implements OnInit {
   role:any;
   fileToUpload: File = null;
   formData: FormData;
-  constructor(private formBuilder: FormBuilder, private _regService:RegisterService,private toastr: ToastrService,private _serviceFileUpload:FileuploadsService) { }
+  constructor(private formBuilder: FormBuilder, private _regService:RegisterService,private toastr: ToastrService) { }
   ngOnInit() {
     this.getDesigation();
     this.initForm();
@@ -40,7 +40,8 @@ initForm() {
     Mobile_No: ['', [Validators.required, Validators.minLength(10)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
-    role_id: ['', Validators.required]
+    role_id: ['', Validators.required],
+    uploads: File
 });
 }
 
@@ -48,8 +49,8 @@ get f() { return this.registerForm.controls; }
 
 handleFileInput(files: FileList) {
   this.formData = new FormData();
-  this.formData.append("uploads",  files.item(0));
-  console.log(this.formData); 
+  this.formData.append("uploads",  files.item(0)); 
+  console.log(this.formData)  
 }
 
 getDesigation(){
@@ -61,8 +62,8 @@ getDesigation(){
 
 onSubmit() {
 this.submitted = true;
-if (this.registerForm.invalid) {return;}
-console.log(this.registerForm.value)
+   if (this.registerForm.invalid) {return;}
+    console.log(this.registerForm.value)
     this._regService.postRegistertation(this.registerForm.value)
     .subscribe(res=>{
       this.showSuccess('Successfully')
@@ -71,13 +72,6 @@ console.log(this.registerForm.value)
       error => {
         this.onshow1(error.error);
       })
-      // this._serviceFileUpload.uploadFile(this.formData)    
-      // .subscribe(res=>{
-      //  this.showSuccess('File Uploaded') 
-      //   this.onReset() 
-      // },error => {
-      //   this.onshow1(error.error);
-      // })
 }
 
 onReset() {
