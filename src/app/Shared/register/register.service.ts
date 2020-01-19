@@ -31,4 +31,7 @@ export class RegisterService {
   deleteRegisterData(id):Observable<Register>{
     return this.http.delete<Register>(`${this.baseUrl}/register/delete/${id}`)
   }
+  downloadFile(id:string):Observable<Blob>{
+    return this.http.get(`${this.baseUrl}/register/download/${id}`,{ responseType: "blob" })
+  }
 }

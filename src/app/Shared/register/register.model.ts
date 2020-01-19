@@ -6,5 +6,4 @@ export class Register {
     email:String;
     password:String;
     role_id:String;
-
 }

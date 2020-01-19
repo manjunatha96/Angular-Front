@@ -2,7 +2,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { log } from 'util';
 import { FileuploadsService } from './../../Shared/fileupload/fileuploads.service';
 import { Component, OnInit } from '@angular/core';
-import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
+// import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
