@@ -16,13 +16,13 @@
       </thead>
       <tbody  align="center">
         <tr *ngFor="let ur of user;let i=index;">
-            <td>{{i+1}} </td>
+         <td>{{i+1}} </td>
           <td>{{ur.first_name}}</td>
           <td>{{ur.last_name}}</td>
           <td>{{ur.email}}</td>
           <td>{{ur.Mobile_No}}</td>
           <td>{{ur.gender}}</td>
-          <td>{{ur.role_id.role_name}}</td>         
+          <td>{{ur.role_id.role_name}}</td>
           <td><button type="button" (click)="Download(ur._id)" class="btn btn-secondary">Dowload</button></td>
           <td><button type="button" (click)="deleteInfo(ur._id)" class="btn btn-danger">Delete</button></td>
         </tr>

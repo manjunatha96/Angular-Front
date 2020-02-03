@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.onShow('login')
   },error=>{
     this.onshow1(error.error);
-  })
+  }) 
   }
   
   onReset() {

@@ -8,6 +8,7 @@
         <!-- <a class="navbar-brand text-left" routerLink="/info">Sign Up</a> -->
         <!-- <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/login">Login</a> -->
         <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" routerLink="/Register-details">Register-Deatils</a> 
+        <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" routerLink="/Attendance">Attedance</a> 
         <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" (click)="_serviceLogin.loggedOut()" routerLink="/login">Logout</a> 
         <!-- <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" (click)="_serviceLogin.loggedOut()" routerLink="/registration">Registration</a>           -->
     </div>

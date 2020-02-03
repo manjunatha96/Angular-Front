@@ -14,7 +14,6 @@ export class LoginService {
   baseUrl='http://localhost:1234'
 
   postLogin(login):Observable<Login>{
-    console.log('register data',login)
     let authenticatedHeader = new HttpHeaders();
     authenticatedHeader = authenticatedHeader.set('X1-login', 'application/json');
     return this.http.post<Login>(`${this.baseUrl}/login/post`,login)
@@ -27,5 +26,14 @@ export class LoginService {
   loggedOut(){
     localStorage.removeItem('token')
     this.router.navigate(['/login'])
+  }
+
+   httpOptions = {
+    headers: new HttpHeaders({      
+      'X1-login': '' +  localStorage.getItem('token')
+    })
+  }
+  getLoginUserDeatils():Observable<Login>{
+    return this.http.get<Login>(`${this.baseUrl}/login/me`,this.httpOptions)
   }
 }
