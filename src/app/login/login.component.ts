@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   this._serviceLogin.postLogin(this.registerForm.value)
   .subscribe(res=>{
     localStorage.setItem('token',res.token)
-    this.route.navigateByUrl('/info')
+    this.route.navigateByUrl('/Attendance')
     this.onShow('login')
   },error=>{
     this.onshow1(error.error);

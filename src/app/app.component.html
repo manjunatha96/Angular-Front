@@ -1,14 +1,15 @@
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" *ngIf="!_serviceLogin.loggedIn()"  routerLink="">Home</a>
-    <a class="navbar-brand" *ngIf="_serviceLogin.loggedIn()"  routerLink="/info">Home</a>
+    <a class="navbar-brand" *ngIf="_serviceLogin.loggedIn()"  routerLink="/Attendance">Home</a>
 
     <div class="text-left">
         <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/upload">Upload</a>
         <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/designation">Designation</a>
+        <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/AfterLogin">AfterLogin</a>        
         <!-- <a class="navbar-brand text-left" routerLink="/info">Sign Up</a> -->
         <!-- <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/login">Login</a> -->
         <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" routerLink="/Register-details">Register-Deatils</a> 
-        <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" routerLink="/Attendance">Attedance</a> 
+        <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" routerLink="/info">User Info</a> 
         <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" (click)="_serviceLogin.loggedOut()" routerLink="/login">Logout</a> 
         <!-- <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" (click)="_serviceLogin.loggedOut()" routerLink="/registration">Registration</a>           -->
     </div>

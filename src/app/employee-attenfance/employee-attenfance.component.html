@@ -5,7 +5,7 @@
                 <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/user-453533-fdadfd.png" data-original-title="Usuario"> 
             </div>
             <div class="col-md-6">
-                <strong>Information</strong><br>
+                <strong>User Information</strong><br>
                 <div class="table-responsive">
                 <table class="table table-condensed table-responsive table-user-information">
                     <tbody >
@@ -41,21 +41,7 @@
                             <td class="text-primary">
                                 {{user.Mobile_No}}   
                             </td>
-                        </tr>
-    
-                        <tr>        
-                            <td>
-                                <strong>
-                                    <span class="glyphicon glyphicon-bookmark text-primary"></span> 
-                                    Username                                                
-                                </strong>
-                            </td>
-                            <td class="text-primary">
-                                bootnipets 
-                            </td>
-                        </tr>
-    
-    
+                        </tr>    
                         <tr>        
                             <td>
                                 <strong>
@@ -64,7 +50,7 @@
                                 </strong>
                             </td>
                             <td class="text-primary">
-                                {{user.role_id}} 
+                                {{user.role_id.role_name}} 
                             </td>
                         </tr>
                         <tr>        
@@ -86,7 +72,7 @@
                                 </strong>
                             </td>
                             <td class="text-primary">
-                                {{user.created_date}} 
+                                {{user.created_date | date }} 
                             </td>
                         </tr>
                         <tr>        
