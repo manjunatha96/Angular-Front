@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../Shared/login/login.service';
 
 @Component({
   selector: 'app-after-login',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AfterLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _serviceLogin:LoginService) { }
 
   ngOnInit() {
   }

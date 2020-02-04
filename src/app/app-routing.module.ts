@@ -9,6 +9,7 @@ import { RegisterDeatilsComponent } from './registerDetails/register-deatils/reg
 import { UploadfileComponent } from './fileUpload/uploadfile/uploadfile.component';
 import { EmployeeAttenfanceComponent } from './employee-attenfance/employee-attenfance.component';
 import { AfterLoginComponent } from './after-login/after-login.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 
 const routes: Routes = [
@@ -20,8 +21,9 @@ const routes: Routes = [
   { path:'forget_passwoed',component:RestPasswordComponent},
   { path:'Register-details',component:RegisterDeatilsComponent},
   { path:'upload', component:UploadfileComponent},
-  {path:'Attendance', component:EmployeeAttenfanceComponent },
-  {path:'AfterLogin',component:AfterLoginComponent}
+  {path:'userinfo', component:EmployeeAttenfanceComponent },
+  {path:'AfterLogin',component:AfterLoginComponent},
+  {path:'Attendance', component:AttendanceComponent}
 ];
 
 @NgModule({

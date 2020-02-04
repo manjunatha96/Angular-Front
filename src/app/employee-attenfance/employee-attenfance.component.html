@@ -16,7 +16,7 @@
                                     First Name                                                
                                 </strong>
                             </td>
-                            <td class="text-primary">
+                            <td class="text-primary" *ngIf="user">
                                 {{user.first_name}}      
                             </td>
                         </tr>
@@ -27,7 +27,7 @@
                                     Last Name                                                
                                 </strong>
                             </td>
-                            <td class="text-primary">
+                            <td class="text-primary" *ngIf="user">
                                 {{user.last_name}}      
                             </td>
                         </tr>
@@ -38,7 +38,7 @@
                                     Mobile No                                                
                                 </strong>
                             </td>
-                            <td class="text-primary">
+                            <td class="text-primary" *ngIf="user">
                                 {{user.Mobile_No}}   
                             </td>
                         </tr>    
@@ -49,7 +49,7 @@
                                     Role                                                
                                 </strong>
                             </td>
-                            <td class="text-primary">
+                            <td class="text-primary" *ngIf="user">
                                 {{user.role_id.role_name}} 
                             </td>
                         </tr>
@@ -60,7 +60,7 @@
                                     Email                                                
                                 </strong>
                             </td>
-                            <td class="text-primary">
+                            <td class="text-primary" *ngIf="user">
                                 {{user.email}} 
                             </td>
                         </tr>
@@ -71,7 +71,7 @@
                                     created                                                
                                 </strong>
                             </td>
-                            <td class="text-primary">
+                            <td class="text-primary" *ngIf="user">
                                 {{user.created_date | date }} 
                             </td>
                         </tr>
@@ -82,7 +82,7 @@
                                     Gender                                                
                                 </strong>
                             </td>
-                            <td class="text-primary">
+                            <td class="text-primary" *ngIf="user">
                                 {{user.gender}} 
                             </td>
                         </tr>                                    

@@ -1,17 +1,54 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark"  *ngIf="!_serviceLogin.loggedIn()">
     <a class="navbar-brand" *ngIf="!_serviceLogin.loggedIn()"  routerLink="">Home</a>
-    <a class="navbar-brand" *ngIf="_serviceLogin.loggedIn()"  routerLink="/Attendance">Home</a>
+    <a class="navbar-brand" *ngIf="_serviceLogin.loggedIn()"  routerLink="/userinfo">Home</a>
 
     <div class="text-left">
         <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/upload">Upload</a>
         <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/designation">Designation</a>
-        <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/AfterLogin">AfterLogin</a>        
-        <!-- <a class="navbar-brand text-left" routerLink="/info">Sign Up</a> -->
-        <!-- <a class="navbar-brand text-left" *ngIf="!_serviceLogin.loggedIn()" routerLink="/login">Login</a> -->
-        <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" routerLink="/Register-details">Register-Deatils</a> 
-        <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" routerLink="/info">User Info</a> 
-        <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" (click)="_serviceLogin.loggedOut()" routerLink="/login">Logout</a> 
-        <!-- <a class="navbar-brand text-left" *ngIf="_serviceLogin.loggedIn()" (click)="_serviceLogin.loggedOut()" routerLink="/registration">Registration</a>           -->
     </div>
 </nav>
+<div id="wrapper"  [ngClass]="ref.click === true? 'toggled' :''" *ngIf="_serviceLogin.loggedIn()">
+    <div class="overlay" [ngStyle]="{disply:ref.click === true? 'block' :'none'}" ></div>
+
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a routerLink="userinfo">
+                   Home
+                </a>
+            </li>
+            <li>
+                <a routerLink="/userinfo">About</a>
+            </li>
+            <li>
+                <a routerLink="/info">User Info</a>
+            </li>
+            <li>
+                <a routerLink="Attendance">Attendance</a>
+            </li>
+            <li>
+                <a routerLink="Register-details">Registered User's</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="https://github.com/manjunatha96">Contact</a>
+            </li>
+            <li>
+                <a (click)="_serviceLogin.loggedOut()" routerLink="/login">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="page-content-wrapper">
+        <button appSidebar  #ref="appSidebar" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+    </div>
+</div>
+
+
 <router-outlet></router-outlet>

@@ -17,8 +17,6 @@ export class EmployeeAttenfanceComponent implements OnInit {
     this._servie.getLoginUserDeatils()
     .subscribe(res=>{
       this.user=res;
-      console.log(res);
-      
-     })
+    })
   }
 }

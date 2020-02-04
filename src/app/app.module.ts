@@ -16,6 +16,8 @@ import { RegisterDeatilsComponent } from './registerDetails/register-deatils/reg
 import { UploadfileComponent } from './fileUpload/uploadfile/uploadfile.component';
 import { EmployeeAttenfanceComponent } from './employee-attenfance/employee-attenfance.component';
 import { AfterLoginComponent } from './after-login/after-login.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { SidebarDirective } from './after-login/sidebar.directive';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { AfterLoginComponent } from './after-login/after-login.component';
     RegisterDeatilsComponent,
     UploadfileComponent,
     EmployeeAttenfanceComponent,
-    AfterLoginComponent
+    AfterLoginComponent,
+    AttendanceComponent,
+    SidebarDirective
   ],
   imports: [
     BrowserModule,
