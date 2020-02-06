@@ -8,7 +8,6 @@ import { RestPasswordComponent } from './rest-password/rest-password.component';
 import { RegisterDeatilsComponent } from './registerDetails/register-deatils/register-deatils.component';
 import { UploadfileComponent } from './fileUpload/uploadfile/uploadfile.component';
 import { EmployeeAttenfanceComponent } from './employee-attenfance/employee-attenfance.component';
-import { AfterLoginComponent } from './after-login/after-login.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 
 
@@ -22,8 +21,11 @@ const routes: Routes = [
   { path:'Register-details',component:RegisterDeatilsComponent},
   { path:'upload', component:UploadfileComponent},
   {path:'userinfo', component:EmployeeAttenfanceComponent },
-  {path:'AfterLogin',component:AfterLoginComponent},
-  {path:'Attendance', component:AttendanceComponent}
+  // {path:'AfterLogin',loadChildren:
+  //                 ()=>import('./loadmodule/customers/lazyloading/lazyloading.component').then(m=>m.LazyloadingComponent)
+  // },
+  {path:'Attendance', component:AttendanceComponent},
+  { path: 'AfterLogin', loadChildren: () => import('./loadmodule/customers/customers.module').then(m => m.CustomersModule) }
 ];
 
 @NgModule({
