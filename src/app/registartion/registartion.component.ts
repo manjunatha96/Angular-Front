@@ -74,6 +74,7 @@ this.formData.append("Mobile_No",this.registerForm.value.Mobile_No);
 this.formData.append("password",this.registerForm.value.password);
 this.formData.append("email",this.registerForm.value.email);
 this.formData.append("role_id",this.registerForm.value.role_id);
+console.log(this.formData);
 
 
     this._regService.postRegistertation(this.formData)

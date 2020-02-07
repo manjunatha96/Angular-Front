@@ -8,7 +8,7 @@
     </div>
 </nav>
 <div id="wrapper"  [ngClass]="ref.click === true? 'toggled' :''" *ngIf="_serviceLogin.loggedIn()">
-    <div class="overlay" [ngStyle]="{disply:ref.click === true? 'block' :'none'}" ></div>
+    <div ></div>
 
     <!-- Sidebar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
@@ -28,10 +28,10 @@
                 <a routerLink="Attendance">Attendance</a>
             </li>
             <li>
-                <a routerLink="Register-details">Registered User's</a>
+                <a *ngIf="_serviceLogin.loggedIn()" routerLink="Register-details">Registered User's</a>
             </li>
             <li>
-                <a routerLink="AfterLogin">Services</a>
+                <a *ngIf="_serviceLogin.loggedIn()" routerLink="AfterLogin">Services</a>
             </li>
             <li>
                 <a href="https://github.com/manjunatha96">Contact</a>
